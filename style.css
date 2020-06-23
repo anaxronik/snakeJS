@@ -9,7 +9,25 @@ header{
     justify-content: center;
     align-items: center;
     height: 70px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    background-color: red;
+    width: 300px;
+    height: 50px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: large;
+}
+button:hover{
+    background-color: orange;
 }
 body{
 background-color: #ece5e5;

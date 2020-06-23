@@ -44,7 +44,7 @@ function direction(event) {
 
 function eatTail(head, arr) {
   for (let i = 0; i < arr.length; i++) {
-    if (head.x == arr[i].x && head.y == arr[i].y) {
+    if (head.x === arr[i].x && head.y === arr[i].y) {
       gameOver();
     }
   }
@@ -54,7 +54,7 @@ function drawGame() {
   ctx.drawImage(background, 0, 0);
   ctx.drawImage(foodImg, food.x, food.y);
   for (let i = 0; i < snake.length; i++) {
-    ctx.fillStyle = i == 0 ? "green" : "orange";
+    ctx.fillStyle = i === 0 ? "green" : "orange";
     ctx.fillRect(snake[i].x, snake[i].y, boxSize, boxSize);
   }
   ctx.fillStyle = "white";
@@ -64,7 +64,7 @@ function drawGame() {
   let snakeX = snake[0].x;
   let snakeY = snake[0].y;
 
-  if (snakeX == food.x && snakeY == food.y) {
+  if (snakeX === food.x && snakeY === food.y) {
     score++;
     food = {
       x: Math.floor(Math.random() * 17 + 1) * boxSize,
@@ -105,7 +105,14 @@ function gameOver() {
   ctx.fillText("GAME OVER", 150, 300);
   ctx.font = "30px Arial";
   ctx.fillStyle = "white";
-  ctx.fillText("PLEASE RELOAD PAGE", 140, 350);
+  ctx.fillText("PLEASE RESTART GAME", 140, 350);
+  // window.location.reload(false);
 }
+
+let reloadButton = document.getElementById("reload");
+function reloadPage() {
+  window.location.reload(false);
+}
+reloadButton.addEventListener("click", reloadPage);
 
 let game = setInterval(drawGame, updateDelay);
